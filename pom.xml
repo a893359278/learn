@@ -22,6 +22,7 @@
         <module>caffeine</module>
         <module>serialization</module>
         <module>jmh-support</module>
+        <module>okhttp</module>
     </modules>
 
     <properties>
@@ -56,6 +57,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>3.14.9</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo-spring-boot-starter</artifactId>
