@@ -24,6 +24,7 @@
         <module>jmh-support</module>
         <module>okhttp</module>
         <module>sentinel</module>
+        <module>network</module>
     </modules>
 
     <properties>
