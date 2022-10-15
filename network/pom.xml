@@ -13,8 +13,7 @@
     <packaging>pom</packaging>
     <description>network in action</description>
     <modules>
-        <module>network-client</module>
-        <module>network-server</module>
+        <module>intranet-penetration</module>
     </modules>
 
 
