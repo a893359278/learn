@@ -1,0 +1,17 @@
+server:
+  port: 8191
+spring:
+  application:
+    name: consumer-service
+dubbo:
+  application:
+    name: consumer-service
+  registry:
+    address: nacos://127.0.0.1:8848
+    username: nacos
+    password: nacos
+  scan:
+    base-packages: org.csp.learn.dubbo.nacos.consumer
+  protocol:
+    name: dubbo
+    port: 14511

@@ -25,6 +25,7 @@
         <module>okhttp</module>
         <module>sentinel</module>
         <module>network</module>
+        <module>dubbo-nacos</module>
     </modules>
 
     <properties>
