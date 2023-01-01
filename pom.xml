@@ -26,6 +26,8 @@
         <module>sentinel</module>
         <module>network</module>
         <module>dubbo-nacos</module>
+        <module>hbase</module>
+        <module>netty</module>
     </modules>
 
     <properties>
@@ -36,6 +38,7 @@
         <lombok.version>1.18.12</lombok.version>
         <dubbo.version>2.7.8</dubbo.version>
         <sentinel.version>1.8.5</sentinel.version>
+        <netty.version>4.1.51.Final</netty.version>
     </properties>
 
     <dependencies>
@@ -57,10 +60,22 @@
             <version>${lombok.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.alibaba.csp</groupId>
                 <artifactId>sentinel-transport-simple-http</artifactId>

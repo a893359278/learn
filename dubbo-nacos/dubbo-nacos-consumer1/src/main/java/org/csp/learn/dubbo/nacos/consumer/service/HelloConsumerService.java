@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloConsumerService {
 
-    @DubboReference
+    @DubboReference(protocol = "dubbo")
     private HelloService helloService;
 
     @GetMapping("/consumeHello")
