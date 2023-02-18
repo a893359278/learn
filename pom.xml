@@ -28,6 +28,7 @@
         <module>dubbo-nacos</module>
         <module>hbase</module>
         <module>netty</module>
+        <module>zookeeper</module>
     </modules>
 
     <properties>
