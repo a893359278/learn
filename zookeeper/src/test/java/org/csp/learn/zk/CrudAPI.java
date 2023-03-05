@@ -1,14 +1,18 @@
 package org.csp.learn.zk;
 
 import com.alibaba.fastjson.JSON;
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.apache.zookeeper.AsyncCallback;
+import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.Watcher.Event.EventType;
 import org.apache.zookeeper.Watcher.Event.KeeperState;
+import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.Stat;
 import org.junit.Before;
@@ -107,5 +111,15 @@ public class CrudAPI {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    @Test
+    public void acl() throws KeeperException, InterruptedException, IOException {
+        zkClient.addAuthInfo("digest", "foo:true".getBytes());
+        zkClient.create("/hello", "zzz".getBytes(), Ids.CREATOR_ALL_ACL, CreateMode.PERSISTENT);
+
+        ZooKeeper zkClient2 = new ZooKeeper("localhost:2181", 5000, null);
+        zkClient2.delete("/hello", -1);
     }
 }
