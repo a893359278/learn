@@ -20,9 +20,10 @@ import org.apache.hadoop.hbase.client.TableDescriptorBuilder;
 public class HBaseDDL {
 
     static Connection conn;
+    static Configuration conf;
     static {
         try {
-            Configuration conf = HBaseConfiguration.create();
+            conf = HBaseConfiguration.create();
             conf.set("hbase.zookeeper.quorum", "127.0.0.1");
             conf.set("hbase.zookeeper.property.clientPort", "2182");
             conf.set("hbase.master", "127.0.0.1:60000");
