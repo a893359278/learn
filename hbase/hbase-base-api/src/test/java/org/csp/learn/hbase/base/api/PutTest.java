@@ -6,6 +6,7 @@ import java.util.Arrays;
 import org.apache.hadoop.hbase.KeyValue;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.util.Bytes;
 import org.csp.learn.hbase.base.HBase;
 import org.junit.Test;
 
@@ -37,8 +38,8 @@ public class PutTest extends HBase {
      */
     @Test
     public void put_case2() throws Exception {
-        Put put = new Put(toBytes("rowKey1"));
-        put.addColumn(toBytes("info"), toBytes("name"), toBytes("chenshaoping"));
+        Put put = new Put(toBytes("rowKey7"));
+        put.addColumn(toBytes("p"), toBytes("zzx"), 1678199225003L, toBytes("zxczxc"));
         conn.getTable(TableName.valueOf("bigdata:hello")).put(put);
     }
 
@@ -58,7 +59,7 @@ public class PutTest extends HBase {
                 .addColumn(toBytes("info"), toBytes("age"), toBytes(12))
                 .addColumn(toBytes("info"), toBytes("adress"), toBytes("福建省"));
 
-        conn.getTable(TableName.valueOf("bigdata:hello")).put(Arrays.asList(put, put1));
+        table.put(Arrays.asList(put, put1));
     }
 
     /**
@@ -123,5 +124,20 @@ public class PutTest extends HBase {
         put3.addColumn(toBytes("p"), toBytes("age"), System.currentTimeMillis() - 20000, toBytes(12));
 
         conn.getTable(TableName.valueOf("bigdata:hello")).put(Arrays.asList(put,put2,put3));
+    }
+
+
+    @Test
+    public void put_case8() throws Exception {
+        Put put = new Put("rowKey5".getBytes());
+        put.addColumn("p".getBytes(), "click1".getBytes(), Bytes.toBytes(1L));
+
+        Put put1 = new Put("rowKey6".getBytes());
+        put1.addColumn("p".getBytes(), "click1".getBytes(), Bytes.toBytes(1L));
+
+        Put put2 = new Put("rowKey6".getBytes());
+        put2.addColumn("p".getBytes(), "click1".getBytes(), Bytes.toBytes(1L));
+
+        table.put(Arrays.asList(put, put1, put2));
     }
 }

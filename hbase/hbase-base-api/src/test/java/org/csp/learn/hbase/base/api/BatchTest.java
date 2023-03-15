@@ -6,12 +6,10 @@ import com.alibaba.fastjson.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Delete;
 import org.apache.hadoop.hbase.client.Get;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Row;
-import org.apache.hadoop.hbase.client.Table;
 import org.csp.learn.hbase.base.HBase;
 import org.junit.Test;
 
@@ -23,13 +21,6 @@ import org.junit.Test;
  * @date 2023-03-07 23:13
  */
 public class BatchTest extends HBase {
-
-    private Table table;
-    public BatchTest() {
-        try {
-            table = conn.getTable(TableName.valueOf("bigdata:hello"));
-        } catch (Exception e){}
-    }
 
     @Test
     public void test_1() throws IOException, InterruptedException {

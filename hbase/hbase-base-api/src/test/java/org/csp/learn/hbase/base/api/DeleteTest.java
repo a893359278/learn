@@ -15,13 +15,6 @@ import org.junit.Test;
  */
 public class DeleteTest extends HBase {
 
-    private Table table;
-    public DeleteTest() {
-        try {
-            table = conn.getTable(TableName.valueOf("bigdata:hello"));
-        } catch (Exception e){}
-    }
-
     /**
      * 删除最新的版本
      */
@@ -41,5 +34,11 @@ public class DeleteTest extends HBase {
         Delete k = new Delete(toBytes("rowKey6"));
         k.addFamilyVersion(toBytes("p"), 1678199204997L);
         table.delete(k);
+    }
+
+    @Test
+    public void delete_3() throws IOException {
+        Delete del = new Delete(toBytes("rowKey6"));
+        table.delete(del);
     }
 }

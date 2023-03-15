@@ -21,13 +21,6 @@ import org.junit.Test;
  */
 public class GetTest extends HBase {
 
-    private Table table;
-    public GetTest() {
-        try {
-            table = conn.getTable(TableName.valueOf("bigdata:hello"));
-        } catch (Exception e){}
-    }
-
     /**
      * 按照 rowKey 读取
      * @throws Exception
@@ -110,7 +103,7 @@ public class GetTest extends HBase {
      */
     @Test
     public void get_4() throws Exception {
-        Get get = new Get(toBytes("rowKey6"));
+        Get get = new Get(toBytes("rowKey6")).readAllVersions();
         get = get.addColumn(toBytes("p"), toBytes("age"));
         get = get.readAllVersions();
 
