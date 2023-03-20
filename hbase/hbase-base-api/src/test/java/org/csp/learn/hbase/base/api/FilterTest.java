@@ -159,8 +159,8 @@ public class FilterTest extends HBase {
 
     @Test
     public void test_10() {
-        SingleColumnValueFilter filter = new SingleColumnValueFilter("p".getBytes(), "age".getBytes(), CompareOperator.EQUAL,
-                new BinaryComparator(Bytes.toBytes(100)));
+        SingleColumnValueFilter filter = new SingleColumnValueFilter("p".getBytes(), "age".getBytes(), CompareOperator.NOT_EQUAL,
+                new BinaryComparator(Bytes.toBytes(200)));
         // 当不匹配时，丢弃
         filter.setFilterIfMissing(true);
         Scan scan = new Scan().setFilter(filter);
