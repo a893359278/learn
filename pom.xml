@@ -29,6 +29,7 @@
         <module>hbase</module>
         <module>netty</module>
         <module>zookeeper</module>
+        <module>mysql-sharding</module>
     </modules>
 
     <properties>
@@ -38,7 +39,7 @@
         <fastjson.version>1.2.76</fastjson.version>
         <lombok.version>1.18.12</lombok.version>
         <dubbo.version>2.7.8</dubbo.version>
-        <sentinel.version>1.8.5</sentinel.version>
+        <sentinel.version>1.6.0</sentinel.version>
         <netty.version>4.1.51.Final</netty.version>
     </properties>
 

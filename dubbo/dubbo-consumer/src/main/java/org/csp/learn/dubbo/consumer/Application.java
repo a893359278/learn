@@ -14,7 +14,7 @@ public class Application {
         context.start();
         MyHelloServiceConsumer bean = context.getBean(MyHelloServiceConsumer.class);
         bean.hello();
-        context.close();
+//        context.close();
         System.in.read();
     }
 
